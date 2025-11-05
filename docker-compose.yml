@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  orchestrator:
+    build: ./orchestrator
+    ports:
+      - "6000:6000"
+    depends_on:
+      - order_service
+      - payment_service
+      - delivery_service
+      - notification_service
+
+  order_service:
+    build: ./order_service
+    ports:
+      - "6001:6001"
+
+  payment_service:
+    build: ./payment_service
+    ports:
+      - "6002:6002"
+
+  delivery_service:
+    build: ./delivery_service
+    ports:
+      - "6003:6003"
+
+  notification_service:
+    build: ./notification_service
+    ports:
+      - "6004:6004"
